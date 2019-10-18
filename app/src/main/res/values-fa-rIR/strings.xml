@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">نمایشگر سرعت اینترنت</string>
+    <string name="title_home">خانه</string>
+    <string name="title_dashboard">تنظیمات</string>
+    <string name="title_notifications">درباره ما</string>
+    <string name="title_vpn">وی پی ان</string>
+    <string name="action_about">درباره ما</string>
+    <string name="action_stop">خروج</string>
+    <string name="close">بستن</string>
+    <string name="axisY">سرعت KB/s</string>
+    <string name="about_support">حمایت از ما</string>
+    <string name="about_head">"نمایشگر سرعت اینترنت "</string>
+    <string name="speed">سرعت</string>
+    <string name="download">دانلود</string>
+    <string name="upload">آپلود</string>
+    <string name="b">B/s</string>
+    <string name="kb">KB/s</string>
+    <string name="mb">MB/s</string>
+    <string name="about_description">\"نمایشگر سرعت اینترنت\" سرعت اینترنت را به صورت زنده در نوار وضعیت نشان می دهد. این نرم افزار به شما امکان می دهد در حالی که مشغول استفاده از تلفن همراه خود هستید، بر سرعت اینترنت خود نیز نظارت کنید. با کلیک بر روی آن گراف دقایق گذشته وضعیت اتصال اینترنت خود را مشاهده خواهید کرد.</string>
+    <string name="option_auto_start">راه اندازی خودکار</string>
+    <string name="option_auto_start_sub">راه اندازی خودکار در شروع به کار دستگاه</string>
+    <string name="option_title_notification">تنظیمات نوتیفیکیشن</string>
+    <string name="option_title_startup">تنظیمات راه اندازی</string>
+    <string name="option_speed_detaile_sub">"نمایش سرعت دانلود و آپلود و یا میزان مصرف روزانه  داده در نوتیفیکیشن "</string>
+    <string name="option_speed_detail">جزئیات سرعت</string>
+    <string name="option_lockscreen_sub">مخفی کردن سرعت شبکه زمان قفل شدن دستگاه</string>
+    <string name="option_lockscreen_notification">نوتیفیکیشن قفل صفحه</string>
+    <string name="option_show_notification">نمایش نوتیفیکیشن</string>
+    <string name="option_show_notification_sub">نمایش نوتیفیکیشن بر روی نوار وضعیت دستگاه</string>
+    <string name="option_auto_hide">پنهان سازی خودکار</string>
+    <string name="option_auto_hide_sub">پنهان سازی خودکار نوتیفیکیشن در زمانی که شبکه در دسترس نیست</string>
+    <string name="option_show_wifi">نمایش نام شبکه</string>
+    <string name="option_show_wifi_detaile">نمایش نام شبکه در نوتیفیکیشن</string>
+    <string name="option_show_dataUsage">نمایش مصرف داده</string>
+    <string name="option_show_dataUsage_detaile">نمایش میزان مصرف روزانه داده در نوتیفیکیشن</string>
+    <string name="kilobyte">کیلوبایت</string>
+    <string name="megabyte">مگابایت</string>
+    <string name="gigabyte">گیگابایت</string>
+    <string name="bytee">بایت</string>
+    <string name="mobile">دیتا</string>
+    <string name="wifi">وایفای</string>
+    <string name="option_show_ads">نمایش تبلیغات</string>
+    <string name="option_show_ads_detaile">نمایش تبلیغات بر روی صفحه اصلی اپلیکیشن</string>
+</resources>

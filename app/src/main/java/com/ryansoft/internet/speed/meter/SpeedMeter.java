@@ -1,5 +1,6 @@
 package com.ryansoft.internet.speed.meter;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -16,7 +17,9 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.ServiceCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -41,15 +44,15 @@ public class SpeedMeter extends Service {
     @Override
     public void onDestroy() {
         Data.sflag = false;
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            stopForeground(true);
-//        } else {
-//            stopSelf();
-//        }
-//        Log.i("Internet Speed Meter","Service Force Restart");
-//        //todo it should be back
-//        Intent broadcastIntent = new Intent(getApplicationContext(), SensorRestarterBroadcastReceiver.class);
-//        sendBroadcast(broadcastIntent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            stopForeground(true);
+        } else {
+            stopSelf();
+        }
+        Log.i("Internet Speed Meter","Service Force Restart");
+        //todo it should be back
+        Intent broadcastIntent = new Intent(getApplicationContext(), SensorRestarterBroadcastReceiver.class);
+        sendBroadcast(broadcastIntent);
         super.onDestroy();
     }
 
@@ -58,6 +61,9 @@ public class SpeedMeter extends Service {
 
         Data.sflag = true;
         Data.dailyDataUsage = new Date();
+        if (mNotificationManager == null) {
+            mNotificationManager = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+        }
         getTrans();
         doTest();
 
@@ -75,6 +81,7 @@ public class SpeedMeter extends Service {
 
             @Override
             public void run() {
+                Log.e("flag",Data.flag+"");
                 if (autoHide()) {
                     String s, d, u;
                     double rxDiff = 0, txDiff = 0;
@@ -114,7 +121,12 @@ public class SpeedMeter extends Service {
                         disappearNotification();
                     }
                 } else {
-                    disappearNotification();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        mNotificationManager.deleteNotificationChannel(channelId);
+                    }else {
+                        disappearNotification();
+                    }
+
                 }
             }
 
@@ -124,11 +136,20 @@ public class SpeedMeter extends Service {
 
     }
 
+
+
+
     private void disappearNotification() {
-        stopForeground(true);
+        stopForeground(false);
+        mNotificationManager.cancel(3128);
+
+
+//            mBuilder = null;
+//        mNotificationManager.cancelAll();
+
 //        NotificationManager notificationManager = (NotificationManager) getBaseContext()
 //                .getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
-//        notificationManager.cancelAll();
+//        n
 
     }
 
@@ -214,6 +235,13 @@ public class SpeedMeter extends Service {
                     } else {
                         mBuilder.setContentText("");
                     }
+                    if(lockScreen()){
+
+                        mBuilder.setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
+                    }else {
+                        mBuilder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+                    }
                     Intent myIntent = new Intent(getBaseContext(), ParentActivity.class);
 
                     PendingIntent intent2 = PendingIntent.getActivity(getBaseContext(),
@@ -231,6 +259,7 @@ public class SpeedMeter extends Service {
 
                         .setShowWhen(false)
                         .setChannelId(channelId)
+                        .setAutoCancel(true)
                         .setSmallIcon(
                                 getResources().getIdentifier(
                                         calculateIcon(txBPS + rxBPS), "drawable",
@@ -246,7 +275,7 @@ public class SpeedMeter extends Service {
 
             }
         } catch (Exception e) {
-
+            firstTime =true;
         }
     }
 
@@ -638,10 +667,10 @@ public class SpeedMeter extends Service {
         }
     }
 
-//    protected boolean lockScreen() {
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-//        return prefs.getBoolean("hideOnLockSetting", true);
-//    }
+    protected boolean lockScreen() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return prefs.getBoolean("hideOnLockSetting", true);
+    }
 
     protected boolean showExteraInfo() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

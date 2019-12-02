@@ -57,14 +57,15 @@ public class ParentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent);
         if (!Data.sflag) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-                //
-               // this.startForegroundService(new Intent(this, SpeedMeter.class));
-                 this.startService(new Intent(this, SpeedMeter.class));
-            } else {
-                this.startService(new Intent(this, SpeedMeter.class));
-
+            Intent intent1 = new Intent(this, SpeedMeter.class);
+            try {
+                startService(intent1);
+            }catch ( Exception e1){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    this.startForegroundService(intent1);
+                }else {
+                    this.startService(intent1);
+                }
             }
         }
 

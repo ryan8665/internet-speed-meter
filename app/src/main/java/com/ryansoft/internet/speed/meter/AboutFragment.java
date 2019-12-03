@@ -42,68 +42,68 @@ public class AboutFragment extends BaseFragment {
         view =   inflater.inflate(R.layout.fragment_about, container, false);
         version = view.findViewById(R.id.version);
         version.setText("("+version.getText()+" "+appVersion()+")");
-        button = view.findViewById(R.id.button);
-        button.setText("Loading...");
-        button.setEnabled(false);
-        MobileAds.initialize(getContext(), "ca-app-pub-7518503677713099~9509477831");
-        // Use an activity context to get the rewarded video instance.
-        mAd = MobileAds.getRewardedVideoAdInstance(getContext());
-        mAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
-            @Override
-            public void onRewardedVideoAdLoaded() {
-                button.setText("SUPPORT US");
-                button.setEnabled(true);
-                button.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onRewardedVideoAdOpened() {
-
-            }
-
-            @Override
-            public void onRewardedVideoStarted() {
-
-            }
-
-            @Override
-            public void onRewardedVideoAdClosed() {
-                button.setEnabled(false);
-                Toast.makeText(getContext(), "Thank you for supporting us.", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewarded(RewardItem rewardItem) {
-
-            }
-
-            @Override
-            public void onRewardedVideoAdLeftApplication() {
-
-            }
-
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i) {
-
-            }
-
-            @Override
-            public void onRewardedVideoCompleted() {
-                button.setVisibility(View.INVISIBLE);
-                button.setEnabled(false);
-            }
-        });
-        loadRewardedVideoAd();
-
-        Button button=(Button)view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mAd.isLoaded()) {
-                    mAd.show();
-                }
-            }
-        });
+//        button = view.findViewById(R.id.button);
+//        button.setText("Loading...");
+//        button.setEnabled(false);
+//        MobileAds.initialize(getContext(), "ca-app-pub-7518503677713099~9509477831");
+//        // Use an activity context to get the rewarded video instance.
+//        mAd = MobileAds.getRewardedVideoAdInstance(getContext());
+//        mAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+//            @Override
+//            public void onRewardedVideoAdLoaded() {
+//                button.setText("SUPPORT US");
+//                button.setEnabled(true);
+//                button.setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onRewardedVideoAdOpened() {
+//
+//            }
+//
+//            @Override
+//            public void onRewardedVideoStarted() {
+//
+//            }
+//
+//            @Override
+//            public void onRewardedVideoAdClosed() {
+//                button.setEnabled(false);
+//                Toast.makeText(getContext(), "Thank you for supporting us.", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onRewarded(RewardItem rewardItem) {
+//
+//            }
+//
+//            @Override
+//            public void onRewardedVideoAdLeftApplication() {
+//
+//            }
+//
+//            @Override
+//            public void onRewardedVideoAdFailedToLoad(int i) {
+//
+//            }
+//
+//            @Override
+//            public void onRewardedVideoCompleted() {
+//                button.setVisibility(View.INVISIBLE);
+//                button.setEnabled(false);
+//            }
+//        });
+//        loadRewardedVideoAd();
+//
+//        Button button=(Button)view.findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mAd.isLoaded()) {
+//                    mAd.show();
+//                }
+//            }
+//        });
         return view;
     }
     private void loadRewardedVideoAd() {

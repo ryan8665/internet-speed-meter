@@ -1,6 +1,5 @@
 package com.ryansoft.internet.speed.meter;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,9 +16,9 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.ServiceCompat;
+
+import androidx.core.app.NotificationCompat;
+
 import android.telephony.TelephonyManager;
 import android.util.Log;
 

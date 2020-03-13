@@ -2,12 +2,10 @@ package com.ryansoft.internet.speed.meter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.preference.SwitchPreference;
-import android.support.v4.app.Fragment;
-import android.support.v7.preference.PreferenceFragmentCompat;
+
+import androidx.preference.PreferenceFragmentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

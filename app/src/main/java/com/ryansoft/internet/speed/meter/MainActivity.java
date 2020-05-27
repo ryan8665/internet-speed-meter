@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -37,6 +38,7 @@ import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PieChartView;
 
 public class MainActivity extends BaseActivity {
+    private FirebaseAnalytics mFirebaseAnalytics;
     TextView totalSpeed;
     TextView receive;
     TextView send;
@@ -73,6 +75,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_main);
 
         wr = (TextView) this.findViewById(R.id.wr);
@@ -87,6 +90,12 @@ public class MainActivity extends BaseActivity {
         chart = (PieChartView) findViewById(R.id.pieChartView1);
         linechart = (LineChartView) findViewById(R.id.line_chart_total);
 //        Toast.makeText(this, android.net.TrafficStats.getMobileRxBytes()+"Bytes", Toast.LENGTH_SHORT).show();
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "main");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         loeadSpeed();
         AdView adView = (AdView) findViewById(R.id.adView);
         runAds(adView);

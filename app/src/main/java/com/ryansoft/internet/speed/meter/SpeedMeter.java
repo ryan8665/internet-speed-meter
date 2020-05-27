@@ -80,7 +80,7 @@ public class SpeedMeter extends Service {
 
             @Override
             public void run() {
-                Log.e("flag",Data.flag+"");
+
                 if (autoHide()) {
                     String s, d, u;
                     double rxDiff = 0, txDiff = 0;

@@ -42,4 +42,13 @@
     <string name="wifi">وایفای</string>
     <string name="option_show_ads">نمایش تبلیغات</string>
     <string name="option_show_ads_detaile">نمایش تبلیغات بر روی صفحه اصلی اپلیکیشن</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3034909524223644/5482067136</string>
+
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3034909524223644/5482067136</string>
+    <string name="title_activity_parent">parentActivity</string>
 </resources>

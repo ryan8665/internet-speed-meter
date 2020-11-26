@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1035965063760",
+    "firebase_url": "https://internetspeedmeterproryan.firebaseio.com",
+    "project_id": "internetspeedmeterproryan",
+    "storage_bucket": "internetspeedmeterproryan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035965063760:android:a442b4737715ecd16be755",
+        "android_client_info": {
+          "package_name": "com.ryansoft.internet.speed.meter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035965063760-i45bs2qcmju4dp91dehdocrcued6fd8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ryansoft.internet.speed.meter",
+            "certificate_hash": "d98c96611161cf2f05507443b88b2f24205df5df"
+          }
+        },
+        {
+          "client_id": "1035965063760-t90qlvig02nljcs6sr2qh9na8t3bm9gt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0cuw9Jzxx5BaNPYgMDYQ0J89oDBqFejo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035965063760-t90qlvig02nljcs6sr2qh9na8t3bm9gt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
